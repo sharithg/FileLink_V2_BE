@@ -51,7 +51,7 @@ export const googleAuth = () => (dispatch, getState) => {
           })
           .catch((err) => console.log(err));
         // }
-      }, 500);
+      }, 100);
     })
     .catch((err) => {
       dispatch(returnErrors(err.response.data, err.response.status));

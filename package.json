@@ -1,0 +1,51 @@
+{
+  "name": "FileLink_V2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch ./file_link_server/dashboard_ui/dashboard_react/src/index.js --output ./file_link_server/static/dashboard_ui/js/main.js",
+    "build": "webpack --mode production ./college_drive/frontend/src/index.js --output ./college_drive/frontend/static/frontend/js/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharithg/FileLink_V2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharithg/FileLink_V2/issues"
+  },
+  "homepage": "https://github.com/sharithg/FileLink_V2#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "@babel/preset-react": "^7.10.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "popper.js": "^1.16.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
+    "google-auth-library": "^6.0.1",
+    "googleapis": "^39.2.0",
+    "open": "^7.0.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-alert": "^7.0.1",
+    "react-alert-template-basic": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "server-destroy": "^1.0.1"
+  }
+}

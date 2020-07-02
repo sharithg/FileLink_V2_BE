@@ -137,5 +137,4 @@ sketch
 # End of https://www.gitignore.io/api/react,django
 *.sqlite3
 creds.json
-format.json
-venv/
+env/
