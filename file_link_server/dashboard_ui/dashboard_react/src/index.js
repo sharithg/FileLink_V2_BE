@@ -17,9 +17,21 @@ const theme = createMuiTheme({
       main: "#212121",
       dark: "#000000",
     },
+    delete: {
+      main: "red",
+    },
   },
   shape: {
     borderRadius: 0,
+  },
+  overrides: {
+    MuiSelect: {
+      select: {
+        "&:focus": {
+          backgroundColor: "blue",
+        },
+      },
+    },
   },
 });
 

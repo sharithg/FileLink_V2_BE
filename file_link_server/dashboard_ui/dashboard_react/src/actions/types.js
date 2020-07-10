@@ -39,3 +39,7 @@ export const ADD_CLASS = "ADD_CLASS";
 export const SET_CURR_CLASS = "SET_CURR_CLASS";
 
 export const CLASSES_LOADED = "CLASSES_LOADED";
+
+export const FILES_LOADING = "FILES_LOADING";
+
+export const SET_CURRENT_ADD_FILE = "SET_CURRENT_ADD_FILE";

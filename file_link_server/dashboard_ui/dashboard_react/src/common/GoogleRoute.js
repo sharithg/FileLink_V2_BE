@@ -3,12 +3,14 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Loader from "./Loader";
 
-const GoogleRoute = ({ component: Component, googleAuth, ...rest }) => (
+const GoogleRoute = ({ component: Component, googleAuth, files, ...rest }) => (
   <Route
     {...rest}
     render={(props) => {
       if (!googleAuth.isGoogleAuth || googleAuth.isGoogleAuth === null) {
         return <Redirect to="/dashboard/gauth/googleauth" />;
+      } else if (files.isLoading) {
+        return <Loader />;
       } else {
         return <Component {...props} />;
       }
@@ -18,6 +20,7 @@ const GoogleRoute = ({ component: Component, googleAuth, ...rest }) => (
 
 const mapStateToProps = (state) => ({
   googleAuth: state.google,
+  files: state.files,
 });
 
 export default connect(mapStateToProps)(GoogleRoute);

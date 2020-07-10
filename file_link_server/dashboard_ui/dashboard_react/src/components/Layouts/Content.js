@@ -21,7 +21,7 @@ import { isAuthGoogle } from "../../actions/googleAction";
 import { getClasses, setCurrClass } from "../../actions/classAction";
 import Auth from "../GoogleAuth/Auth";
 import DashView from "./DashView";
-import FilesView from "./FilesView";
+import ClassView from "./ClassView";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 const drawerWidth = 240;
 
@@ -63,10 +63,10 @@ function Content(props) {
     window: PropTypes.func,
   };
 
-  console.log("here");
   useEffect(() => {
     props.isAuthGoogle();
     props.getClasses();
+    console.log(props.match.params.dashId);
   }, []);
 
   const { window } = props;
@@ -134,7 +134,7 @@ function Content(props) {
             <GoogleRoute
               exact
               path="/dashboard/class/:classId"
-              component={FilesView}
+              component={ClassView}
             />
             <GAuthRoute
               exact

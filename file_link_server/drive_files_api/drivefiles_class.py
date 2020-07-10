@@ -36,7 +36,7 @@ class GoogleAPI:
         self.curr_creds = credentials
 
     def create_doc(self, title):
-        body = {"name": title, "mimeType": "application/vnd.google-apps.presentation"}
+        body = {"name": title, "mimeType": "application/vnd.google-apps.document"}
         gcredentials = google.oauth2.credentials.Credentials(
             **self.credentials)
         set_creds(self.curr_creds, gcredentials)
@@ -61,7 +61,7 @@ class GoogleAPI:
     
         
     def create_slides(self, title):
-        body = {"name": title, "mimeType": "application/vnd.google-apps.document"}
+        body = {"name": title, "mimeType": "application/vnd.google-apps.presentation"}
         gcredentials = google.oauth2.credentials.Credentials(
             **self.credentials)
         set_creds(self.curr_creds, gcredentials)

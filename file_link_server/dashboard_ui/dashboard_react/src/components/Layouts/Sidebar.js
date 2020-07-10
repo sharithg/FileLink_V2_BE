@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
 import ListSubheader from "@material-ui/core/ListSubheader";
@@ -10,13 +10,31 @@ import ClassIcon from "@material-ui/icons/Class";
 import AddIcon from "@material-ui/icons/Add";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
-import TextField from "@material-ui/core/TextField";
 import { connect } from "react-redux";
 import { addClass } from "../../actions/classAction";
 import { setCurrClass } from "../../actions/classAction";
 import { Redirect } from "react-router-dom";
+import TheTextField from "../../CustomMUI/TheTextField";
+import { makeStyles } from "@material-ui/core/styles";
+import SaveIcon from "@material-ui/icons/Save";
+import DeleteIcon from "@material-ui/icons/Delete";
+import CancelButton from "../../CustomMUI/CancelButton";
+import SaveButton from "../../CustomMUI/SaveButton";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    // maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 const Sidebar = (props) => {
+  const classes = useStyles();
+
   const dashboard = [
     {
       text: "Schedule",
@@ -38,17 +56,15 @@ const Sidebar = (props) => {
     setAddClass(true);
   };
 
-  const handleKeyDown = (event) => {
-    // event.preventDefault();
-    if (event.key === "Enter") {
-      console.log(isNaN(event.target.value));
-      if (isNaN(event.target.value)) {
-        props.addClass({ name: event.target.value });
-      }
-      setClassName("");
-      setAddClass(false);
+  const handleSave = (event) => {
+    console.log(isNaN(class_name));
+    if (isNaN(class_name)) {
+      props.addClass({ name: class_name });
     }
+    setClassName("");
+    setAddClass(false);
   };
+
   return (
     <div>
       <div />
@@ -113,24 +129,51 @@ const Sidebar = (props) => {
         ))}
       </MenuList>
       {add_class ? (
-        <MenuItem>
-          <TextField
-            onKeyDown={handleKeyDown}
-            name="input_class"
-            value={class_name}
-            onChange={(event) => setClassName(event.target.value)}
-            inputProps={{ autoFocus: true }}
-          />
-        </MenuItem>
+        <Fragment>
+          <MenuItem>
+            <TheTextField
+              name="input_class"
+              value={class_name}
+              onChange={(event) => setClassName(event.target.value)}
+              inputProps={{ autoFocus: true }}
+              label="Enter class name"
+            />
+          </MenuItem>
+          <MenuItem>
+            <SaveButton
+              onClick={handleSave}
+              variant="contained"
+              color="primary"
+              size="small"
+              name="input_doc"
+              className={classes.button}
+              startIcon={<SaveIcon />}
+            >
+              Add
+            </SaveButton>
+            <CancelButton
+              variant="contained"
+              color="red"
+              size="small"
+              className={classes.button}
+              startIcon={<DeleteIcon />}
+              onClick={() => {
+                setClassName("");
+                setAddClass(false);
+              }}
+            >
+              Cancel
+            </CancelButton>
+          </MenuItem>
+        </Fragment>
       ) : (
-        <div />
+        <MenuItem button onClick={handleAddClass}>
+          <ListItemIcon>
+            <AddIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Add Class"} />
+        </MenuItem>
       )}
-      <MenuItem button onClick={handleAddClass}>
-        <ListItemIcon>
-          <AddIcon />
-        </ListItemIcon>
-        <ListItemText primary={"Add Class"} />
-      </MenuItem>
     </div>
   );
 };

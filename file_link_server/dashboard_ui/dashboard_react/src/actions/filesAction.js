@@ -1,7 +1,7 @@
 import axios from "axios";
 import { returnErrors, createMessage } from "./messagesAction";
 //Types
-import { GET_FILES, DELETE_FILE, ADD_FILE } from "./types";
+import { GET_FILES, DELETE_FILE, ADD_FILE, FILES_LOADING } from "./types";
 import { tokenConfig } from "./authAction";
 
 export const getFiles = () => (dispatch, getState) => {
@@ -29,6 +29,7 @@ export const deleteFile = (id) => (dispatch, getState) => {
 };
 
 export const addFile = (file) => (dispatch, getState) => {
+  dispatch({ type: FILES_LOADING });
   axios
     .post("http://127.0.0.1:8000/api/drivelinks/", file, tokenConfig(getState))
     .then((res) => {
@@ -37,6 +38,7 @@ export const addFile = (file) => (dispatch, getState) => {
         type: ADD_FILE,
         payload: res.data,
       });
+      console.log(res.data);
     })
     .catch((err) => console.log(err));
 };
