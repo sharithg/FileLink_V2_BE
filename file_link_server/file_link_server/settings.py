@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'accounts_api',
     'dashboard_ui',
     'drive_files_api',
+    'staticpages_ui',
     'rest_framework',
     'knox',
     'corsheaders',
@@ -65,7 +66,6 @@ ROOT_URLCONF = 'file_link_server.urls'
 
 # Sessions stored in database
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -1,6 +1,5 @@
-import Files from "./Files";
-import FileList from "./FileList";
-import AddFile from "./AddFile";
-import Classes from "./Classes";
+import AddFile from "./AddFile.jsx";
+import AlertDialog from "./AlertDialog.jsx";
+import Classes from "./Classes.jsx";
 
-export { Files, FileList, AddFile, Classes };
+export { AlertDialog, AddFile, Classes };

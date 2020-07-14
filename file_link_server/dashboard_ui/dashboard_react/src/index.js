@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import App from "./components/App.jsx";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 import { createMuiTheme } from "@material-ui/core/styles";
 

@@ -16,13 +16,11 @@ class DriveClassesViewset(viewsets.ModelViewSet):
     serializer_class = ClassListSerializer
 
     def get_queryset(self):
-        print("Q: ", self.request.user.id)
         if not self.request.user.is_authenticated:
             raise PermissionDenied()
         return self.request.user.drive_classes.all()
 
     def perform_create(self, serializer):
-        print("PC: ", self.request.user.is_authenticated)
         if not self.request.user.is_authenticated:
             raise PermissionDenied()
         # print("BOD: ", self.request.body)

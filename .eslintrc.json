@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  //   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-fragments": ["off", "element"],
+    "camelcase": "off",
+    "quotes": [2, "double", { "avoidEscape": true }],
+    "react/jsx-wrap-multilines": ["off"],
+    "react/jsx-one-expression-per-line": ["off"]
+  }
+}
