@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": ".file_link_server/static/js",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "esModuleInterop": true
+  },
+  "include": ["file_link_server/dashboard_ui/dashboard_react/src/"]
+}
