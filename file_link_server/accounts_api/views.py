@@ -24,7 +24,8 @@ from django.utils.encoding import (
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from .utils import send_email
-
+from django.http import HttpResponse
+import datetime
 # Register API
 
 
@@ -154,3 +155,8 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+def current_datetime(request):
+    now = datetime.datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
