@@ -27,6 +27,16 @@ class DriveLinks(models.Model):
     )
 
 
+class Events(models.Model):
+    title = models.CharField(max_length=50)
+    start = models.CharField(max_length=20)
+    end = models.CharField(max_length=20)
+    description = models.CharField(max_length=100)
+    owner = models.ForeignKey(
+        User, related_name="event_owner", on_delete=models.CASCADE, null=True
+    )
+
+
 class CredentialsModel(models.Model):
     owner = models.OneToOneField(
         User, related_name="google_api", on_delete=models.CASCADE, null=True

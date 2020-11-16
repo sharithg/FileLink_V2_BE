@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '84=$&0%8_opt!(^ixe5&qt2mgzsx^0s573xn$bgbnd2t8@91x$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['3.12.132.64']
 
 # Application definition
 
@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts_api',
-    'dashboard_ui',
     'drive_files_api',
-    'staticpages_ui',
     'rest_framework',
     'knox',
     'corsheaders',
@@ -146,3 +144,21 @@ GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = os.path.join(BASE_DIR, "creds.json")
 CORS_ORIGIN_ALLOW_ALL = True
 
 STATICFILES_DIRS = ( os.path.join('static'), )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'noreply@filelinkapp.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = 'j7YbtAD6iexC'
+
+# pre deploy
+SECURE_HSTS_SECONDS = 31536000
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_PRELOAD = True
+SECURE_REFERRER_POLICY = 'same-origin'
